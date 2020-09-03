@@ -1,0 +1,403 @@
+<html lang="en"><head>
+<title>E. C. Okafor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
+/* styling the header ---------------------------------------------------------------------------------------------------------------------- */
+
+}
+.header {
+  padding: 10px; /* some padding */
+  text-align: center; /* center the text */
+  background: black; /* green background */
+  color: white; /* white text color */
+}
+
+/* Increase the font size of the <h1> element */
+.header h1 {
+  font-size: 20px;
+}
+
+/* styling the tab -------------------------------------------------------------------------------------------------------------------------------------- */
+
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: none;
+  background-color: white;
+  width: 20%;
+  /*height: 100px;*/
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  float: left;
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 15px 16px;
+  width: 100%;
+  border: yes;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 0px solid #ccc;
+  width: 80%;
+  border-left: none;
+  /*height: 300px;*/
+}
+
+.tabcontent1 {
+  float: left;
+  padding: 0px 0px;
+  border: 0px solid #ccc;
+  width: 80%;
+  border-left: none;
+  /*height: 300px;*/
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content---------------------------------------------------- */
+.dropdown-container {
+  display: none;
+  background-color: white;
+  padding-left: 1px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/*.drpdn {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}*/
+
+.drpdn a:hover {background-color: #ddd;}
+.tablinks1:hover .drpdn {display: block;}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+/* Create two equal columns that floats next to each other */
+.column1 {
+  float: left;
+  width: 13%;
+  padding: 10px;
+  height: 196px; /* Should be removed. Only for demonstration */
+}
+.column2 {
+  color: black;
+  line-height: 1.6;
+  float: left;
+  width: 87%;
+  padding: 10px;
+  height: 196px; /* Should be removed. Only for demonstration */
+}  
+
+.column3 {
+  float: left;
+  width: 100%;
+  padding: 10px;
+ /* height: 250px;  Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns*/ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+ .tab {
+    float: none;
+    width: 100%;
+  }
+    .tabcontent1 {
+    float: none;
+    width: 100%;
+  }
+  .tabcontent {
+    float: none;
+    width: 100%;
+  }
+  .column1 {
+  float: none;
+    width: 100%;
+    height: auto;
+  }
+  .column2 {
+  float: none;
+    width: 100%;
+    height: auto;
+  }
+  .column3 {
+  float: none;
+    width: 100%;
+    height: auto;
+  }
+  
+}
+
+
+
+/* Style the footer ---------------------------------------------------------------------------------------------------------------------------------------*/
+
+.footer {
+  padding: 10px; /* Some padding */
+  text-align: center; /* Center text*/
+  background: #ddd; /* Grey background */
+  
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top-margin: 20px;
+  bottom-margin: auto;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="header">
+  <h1>Ekenechukwu C. OKAFOR, PhD</h1>
+  <p></p>
+</div>
+
+
+
+<div class="tab">
+  <button class="tablinks active" onclick="openCity(event, 'Home')" id="defaultOpen"><b>Home</b></button>
+  <button class="dropdown-btn"><b>Research Topics</b><i class="fa fa-caret-down"></i></button>
+  <div class="dropdown-container" style="display: none;"> 
+    <button class="tablinks" onclick="openCity(event, 'Fundamental Research')"><i>Fundamental Research</i></button>
+    <button class="tablinks" onclick="openCity(event, 'Applied Research and Development')"><i>Applied Research and Development</i></button>
+  </div>
+  <button class="dropdown-btn"><b>Publications</b><i class="fa fa-caret-down"></i></button>
+  <div class="dropdown-container" style="display: none;"> 
+    <button class="tablinks" onclick="openCity(event, 'Journal Articles')"><i>Journal Articles</i></button>
+    <button class="tablinks" onclick="openCity(event, 'Conference Articles')"><i>Conference Articles</i></button>
+  </div>
+  <button class="tablinks" onclick="openCity(event, 'Reaction Kinetics')"><b>Reaction Kinetics</b></button>
+  
+  </div>
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var k;
+
+for (k = 0; k < dropdown.length; k++) {
+  dropdown[k].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+<div id="Home" class="tabcontent1" style="display: block;">
+  <div class="row">
+  <div class="column1" style="background-color:black;">
+    <img src="index_files/image003.jpg" alt="�gPhoto�h" style="width:100%; margin-top: -5px;" "="">
+  </div>
+  <div class="column2" style="background-color:#EAE8E7;">
+    <p style="margin-top: 25px;">Research Scientist<br>
+    Hydrogen Energy Carrier Team<br>
+    Fukushima Renewable Energy Institute, AIST <a href="https://www.aist.go.jp/fukushima/en/index.html" target="_blank">(FREA)<br></a>
+    Phone number: 050-3659-4004 <br>
+    Email address: ekenechukwu.okafor_at_aist.go.jp<br></p>
+  </div>
+</div>
+  <div class="row2">
+  <div class="column3" style="background-color:white;">
+   <h3>Education and Work History</h3>
+    <p>2019 till date: &nbsp;&nbsp;    Research Scientist, Fukushima Renewable Energy Institute FREA-AIST</p>
+    <p>2015 ~ 2019:  &nbsp;&nbsp;   Post doctoral Researcher, Institute of Fluid Science, Tohoku University</p>
+    <p>2012 ~ 2015: &nbsp;&nbsp;  Doctor of Engineering, Kyushu University</p>
+    <p>2010 ~ 2012: &nbsp;&nbsp;  Master of Engineering, Kyushu University</p>
+    <p>2001 ~ 2007:  &nbsp;&nbsp;   Bachelor of Engineering, University of Nigeria Nsukka</p>
+    <p></p>
+    <br>
+    <h3>Awards and Scholarships</h3>
+    <p> 2019:  &nbsp;&nbsp;   2019 Best Paper Award by the Combustion Society of Japan.</p>
+2014:  &nbsp;&nbsp;   Best Poster and Presentation Award, 7th Kyushu University- KAIST Joint Workshop on Frontiers in Mechanical Engineering.<p></p>
+2013:  &nbsp;&nbsp;   Excellence in Oral Presentation Award, SAE/KSAE Powertrains, Fuels and Lubricant Meeting.<p></p>
+2010:  &nbsp;&nbsp;   Graduate Scholarship Award, Japanese Government (MEXT)<p></p>
+2001:  &nbsp;&nbsp;   Undergraduate Scholarship Award,  Shell Petroleum Company, Nigeria  <p></p>
+    
+    <br>
+    <h3>Current Memberships</h3>
+    <p>SAE, JSME, Combustion Institute</p>
+     
+     
+  </div>
+</div>
+</div>
+
+<div id="Journal Articles" class="tabcontent" style="display: none;">
+  <h3>Journal Articles</h3>
+  <p>Okafor E.C., Tsukamoto M., Hayakawa A., Somarathne K.D.K.A., Kudo T., Tsujimura T., 
+Kobayashi H., Influence of wall heat loss on the emission characteristics of premixed 
+ammonia-air swirling flames interacting with the combustor wall 
+<a href="https://www.sciencedirect.com/science/article/pii/S1540748920302224" target="_blank">
+Proceedings of the Combustion Institute, 38 (2020) </a></p>
+
+<p> Hayakawa A., Hirano Y., Okafor E.C., Yamashita H., 
+Kudo T., Kobayashi H., Experimental and numerical study of product gas characteristics of ammonia/air premixed laminar flames stabilized in a stagnation flow 
+<a href="https://www.sciencedirect.com/science/article/pii/S1540748920302534" target="_blank">Proceedings of the Combustion Institute, 38 (2020). </a></p>
+
+ 
+<p> Somarathne K.D.K.A, Okafor E.C., Sugawara D., Hayakawa A., Kobayashi H., Effect of OH Concentration and Temperature on NO Emission Characteristics of Turbulent Non-premixed CH4/NH3/air Flames in a Two-stage Gas Turbine like Combustor at High Pressure, 
+<a href="https://www.journals.elsevier.com/proceedings-of-the-combustion-institute" target="_blank">Proceedings of the Combustion Institute, 38 (2020) ACCEPTED. </a></p>
+
+<p> Angonno W., Hayakawa A., Okafor E.C., Gotama G.J., Wongso S., Laminar Burning Velocity and Markstein Length of CH4/CO2/Air Premixed Flames at Various Equivalence Ratios, and CO2 Concentrations Under Elevated Pressure 
+<a href="https://www.tandfonline.com/doi/full/10.1080/00102202.2020.1737032" target="_blank">Combustion Science and Technology, (2020). </a></p>
+
+<p> Okafor E.C., Somarathne K.D.K.A, Ratthanan, R., Hayakawa, A.,
+Kudo, T., Kurata, O., Iki, N., Tsujimura, T., Furutani, H., Kobayashi, H., Control of NOx and other emissions in micro gas turbine combustors fuelled with mixtures of methane and ammonia, <a href="https://www.sciencedirect.com/science/article/pii/S0010218019304687" target="_blank">Combustion and Flame, 211 (2020) 406–416. </a></p>
+
+
+<p> Somarathne K.D.K.A, Okafor E.C., Hayakawa, A., Kudo, T., Kurata, O., Iki,
+N., Kobayashi, H., Emission Characteristics of Turbulent Non-premixed Ammonia/air and Methane/air Swirl Flames through a Rich-lean Combustor under
+Various Wall Thermal Boundary Conditions at High Pressure <a href="https://www.sciencedirect.com/science/article/pii/S0010218019304018" target="_blank">Combustion and Flame, 210 (2019) 247–261.</a></p>
+
+
+<p> Okafor, E.C., Naito, Y., Colson, S., Ichikawa, A., Kudo, T., Akihiro, H.,
+Kobayashi, H., Measurement and modelling of the laminar burning velocity of methane-ammonia-air flames at high pressures using a reduced reaction mechanism <a href="https://www.sciencedirect.com/science/article/pii/S0010218019301026" target="_blank">Combustion and Flame, 204 (2019) 162–175.</a></p>
+
+<p> Okafor,E.C., Somarathne, K.D.K.A., Akihiro, H., Kudo, T., Kurata, O, Iki, N, Kobayashi, H., Towards the development of an efficient low-NOx ammonia combustor for a micro gas turbine, <a href="https://www.sciencedirect.com/science/article/pii/S1540748918305017" target="_blank">Proceedings of the Combustion Institute, 37 (2019) 4597 - 4606</a></p>
+
+<p> Kurata, O., Iki, N., Inoue, T., Matsunuma, T., Tsujimura, T., Furutani, H., Kawano, M., Arai, K., Okafor,E.C., Hayakawa, A., Kobayashi, H., �gDevelopment of wide range-operable, rich-lean low-NOx combustor for NH3 fuel gas-turbine power generations,<a href="https://www.sciencedirect.com/science/article/pii/S1540748918306175" target="_blank"> Proceedings of the Combustion Institute,37 (2019) 4589- 4595.</a></p>
+
+
+<p> Kobayashi, H., Hayakawa, A., Somarathne, K.D.K.A., Okafor, E.C., Science and technology of ammonia combustion, <a href="https://www.sciencedirect.com/science/article/pii/S1540748918306345" target="_blank">Proceedings of the Combustion Institute, 37 (2019) 109-133</a></p>
+
+<p> Okafor, E.C., Naito, Y., Colson, S., Ichikawa, A., Kudo, T., Akihiro, H., Kobayashi, H., Experimental and numerical study of the burning velocity of CH4-NH3-air premixed flames, <a href="https://www.sciencedirect.com/science/article/pii/S0010218017303322" target="_blank">Combustion and Flame, Vol. 187, p. 185-198, 2018.</a></p>
+
+<p> Okafor, E.C., Nagano, Y., Kitagawa, T., Experimental and theoretical analysis of cellular instability in lean H2-CH4-air flames at elevated pressures, <a href="https://www.sciencedirect.com/science/article/pii/S0360319915313434" target="_blank">International Journal of Hydrogen Energy, Vol. 41, Issue 15, p. 6581-6592, 2016</a></p>
+
+<p> Okafor, E.C., Hayakawa, A., Nagano, Y., Kitagawa, T., Effects of hydrogen concentration on premixed laminar flames of hydrogen-methane-air,
+<a href="https://www.sciencedirect.com/science/article/pii/S0360319913028929" target="_blank">International
+Journal of Hydrogen Energy, Vol. 39, Issue 5, p. 2409 – 2417, 2014. </a></p>
+</div>
+
+<div id="Conference Articles" class="tabcontent" style="display: none;">
+  <h3>Peer-Reviewed Conference Articles</h3>
+ 
+<p> Okafor, E.C., Rattanasupapornsak, R., Somarathne, K.D.K.A., Hayakawa, A., Kudo, T., Kurata, O, Iki, N, Tsujimura, T., Kobayashi, H., On the control of NOx emission from a micro gas turbine combustor fueled with mixtures of methane and ammonia, Proceedings of the 12th Asia-Pacific Conference on Combustion, Fukuoka, Japan, 2019.</p>
+
+<p> Somarathne, K.D.K.A., Okafor, E.C., Hayakawa, A., Kobayashi, H., Emission Characteristics of Turbulent Non-premixed CH4/NH3/air Swirl Flames through a Rich-Lean Gas Turbine-like Combustor at High Pressure, Proceedings of the 12th Asia-Pacific Conference on Combustion, Fukuoka, Japan, 2019 </p>
+
+<p> Hayakawa, A. Hirano, Y., Okafor, E.C., Kudo, T., Kobayashi, H., Product Gas Characteristics of Strain Stabilized Ammonia/air Premixed Laminar Flames, Proceedings of the 12th Asia-Pacific Conference on Combustion, Fukuoka, Japan, 2019.</p>
+
+<p> Iki, N., Kurata, O., Inoue, T., Matsunuma, T., Tsujimuira, T., Furutani, H., Kobayashi, H., Hayakawa, A., Okafor, E. C., NOx reduction of a swirl combustor firing ammonia for a micro gas turbine�h Proceedings of ASME Turbo Expo 2018: Turbomachinery Technical Conference and Exposition, <a href="https://asmedigitalcollection.asme.org/GT/proceedings-abstract/GT2018/51173/V008T26A009/272673" target="_blank">paper#
+GT 2018-75993</a> Oslo, Norway, 2018 </p>
+
+<p> Okafor, E.C., Sakai, K., Akihiro, H., Kudo, T., Kurata, O, Iki, N, Kobayashi, H., Stabilization and emission characteristics of ammonia flames in a micro gas turbine combustor, Proceedings of the 11th Asia-Pacific Conference on Combustion, Sydney, Australia, 2017.</p>
+
+<p> Okafor, E.C., Fukuda, Y., Nagano, Y., Kitagawa T., Turbulent Burning Velocities of Stoichiometric Hydrogen-Carbon Monoxide-Air Flames at Elevated Pressures,<a href="https://www.sae.org/publications/technical-papers/content/2014-01-2701/" target="_blank">SAE Paper 2014-01-2701</a>, SAE Powertrain Fuel &amp; Lubricants Meeting, Birmingham, UK, 2014</p>
+
+<p> Okafor, E.C., Nagano, Y., Kitagawa T., Effects of hydrogen concentration on stoichiometric H2/CH4/Air premixed turbulent flames,<a href="https://saemobilus.sae.org/content/2013-01-2563/" target="_blank">SAE Paper 2013-01-2563</a> SAE/KSAE Powertrain Fuel and Lubricants Meeting, Seoul,
+Korea, 2013.</p>
+
+<p> Okafor, E.C., Toyoda, M., Hayakawa, A., Nagano, Y., Kitagawa, T., Experimental and numerical studies on burning velocities and Markstein numbers
+of lean laminar H2/CH4/air flames, Proceedings of the 9th Asia-Pacific Conference on Combustion, Gyeongju, Korea, p.116 -119, 2013. </p>
+  
+</div>
+
+<div id="Reaction Kinetics" class="tabcontent" style="display: none;">
+  <h3>Reaction Kinetics</h3>
+  <p>Sorry, this page is still under construction.</p>
+</div>
+
+<div id="Fundamental Research" class="tabcontent" style="display: none;">
+  <h3>Fundamental Research</h3>
+  <p>Sorry, this page is still under construction.</p>
+</div>
+
+<div id="Applied Research and Development" class="tabcontent" style="display: none;">
+  <h3>Applied Research and Development</h3>
+  <p>Sorry, this page is still under construction.</p>
+</div>
+<script>
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tabcontent1, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+  tabcontent1 = document.getElementsByClassName("tabcontent1");
+  for (i = 0; i < tabcontent1.length; i++) {
+    tabcontent1[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+  }
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  
+</script>
+<div class="footer">
+
+</div>
+
+
+
+</body></html>
